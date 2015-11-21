@@ -1,0 +1,6 @@
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\Stringbuilder\bin\Debug\Stringbuilder.exe.config
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\Stringbuilder\bin\Debug\Stringbuilder.exe
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\Stringbuilder\bin\Debug\Stringbuilder.pdb
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\Stringbuilder\obj\Debug\Stringbuilder.csprojResolveAssemblyReference.cache
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\Stringbuilder\obj\Debug\Stringbuilder.exe
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\Stringbuilder\obj\Debug\Stringbuilder.pdb

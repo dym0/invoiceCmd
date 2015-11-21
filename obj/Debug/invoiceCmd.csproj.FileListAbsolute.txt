@@ -1,0 +1,7 @@
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\invoiceCmd\bin\Debug\invoiceCmd.exe.config
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\invoiceCmd.exe.config
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\invoiceCmd.exe
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\invoiceCmd.pdb
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\obj\Debug\invoiceCmd.exe
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\obj\Debug\invoiceCmd.pdb
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\obj\Debug\invoiceCmd.csprojResolveAssemblyReference.cache
