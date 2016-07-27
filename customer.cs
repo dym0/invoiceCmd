@@ -57,10 +57,7 @@ namespace invoiceCmd
             {
                     int lastID;
                     string cs = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
-                    if (cs != string.Empty)
-                    {
-                        Console.WriteLine("Database connected");
-                    }
+              
 
 
                     using (SqlConnection con = new SqlConnection(cs))
@@ -97,25 +94,16 @@ namespace invoiceCmd
             {
                 string info = "";
                    
-               try
-               {
+             
                   
-                   info = " \nID:  " + this.ID +
+                   info = " \n ID:  " + this.ID +
                  "\n Name:  " + this.Name +
                  "\n Surname: " + this.Surname +
                  "\n Email: " + this.Email +
                  "\n Mobile: " + this.Mobile +
                  "\n Join Date: " + this.Data;
 
-                  
-               }
-                catch(Exception e)
-               {
-                    Console.WriteLine(e);
-               }
-
-
-               return info;
+            return info;
              
             }
 
@@ -127,6 +115,7 @@ namespace invoiceCmd
 
                 string cmd = String.Format("INSERT INTO clientInfo VALUES({0}, '{1}','{2}','{3}','{4}','{5}')", this.ID, this.Name, this.Surname, this.Email, this.Mobile, this.Data);
                // TODO
+
                 //SQL Incjection protection
                 using (SqlConnection sqlCon = new SqlConnection(dbConnection))
                 {

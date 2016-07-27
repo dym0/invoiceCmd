@@ -12,18 +12,68 @@ namespace invoiceCmd
      class Program
     {
 
-     
+       //check if database connection is correct \\
+
+
+        public static bool IsServerConnected()
+        {
+
+            string dbConnection = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
+
+            using (var l_oconnection = new SqlConnection(dbConnection))
+            {
+                try
+                {
+                    l_oconnection.Open();
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+
+                }
+                finally
+                {
+
+                }
+            }
+        }
+
+
+
         static void Main(string[] args)
         {
                 
 
             List<customer> customerList = new List<customer>();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-           
+
+           bool dbConnected = IsServerConnected();
+            
+           if(dbConnected)
+            {
+                Console.WriteLine("Database connected successful!");
+            }
+           else if(!dbConnected)
+            {
+                Console.WriteLine("Database connecion fialed");
+            } 
+           else
+            {
+                Console.WriteLine("Unknown error!");
+            }
+               
+            
+
             int userChoice;
+
+
 
             do
             {
+
+               
+
                 userChoice = 0;
                
                 Console.WriteLine("\n\n    1.Customers \n\n    2.Invoices \n\n    3.Exit");
