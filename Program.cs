@@ -12,57 +12,20 @@ namespace invoiceCmd
      class Program
     {
 
-       //check if database connection is correct \\
-
-
-        public static bool IsServerConnected()
-        {
-
-            string dbConnection = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
-
-            using (var l_oconnection = new SqlConnection(dbConnection))
-            {
-                try
-                {
-                    l_oconnection.Open();
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-
-                }
-                finally
-                {
-
-                }
-            }
-        }
+       
 
 
 
         static void Main(string[] args)
         {
-                
 
-            List<customer> customerList = new List<customer>();
+            Tests.dbConnection();
+
+            List<Customer> customerList = new List<Customer>();
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
-           bool dbConnected = IsServerConnected();
+        
             
-           if(dbConnected)
-            {
-                Console.WriteLine("Database connected successful!");
-            }
-           else if(!dbConnected)
-            {
-                Console.WriteLine("Database connecion fialed");
-            } 
-           else
-            {
-                Console.WriteLine("Unknown error!");
-            }
-               
             
 
             int userChoice;
@@ -76,7 +39,7 @@ namespace invoiceCmd
 
                 userChoice = 0;
                
-                Console.WriteLine("\n\n    1.Customers \n\n    2.Invoices \n\n    3.Exit");
+                Console.Write("\n\n    1.Customers \n\n    2.Invoices \n\n    3.Exit \n\n ");
 
                 try 
                 { 
@@ -97,7 +60,7 @@ namespace invoiceCmd
                 {
                     case 1:
                         {
-                            Console.WriteLine("\n\n    1.Add New Customer \n\n    2.Display List of Customers \n\n    3.Remove customer \n\n    4.Back to menu");
+                            Console.Write("\n\n    1.Add New Customer \n\n    2.Display List of Customers \n\n    3.Remove customer \n\n    4.Back to menu \n\n  ");
                             try { userChoice = Convert.ToInt16(Console.ReadLine()); }
                             catch { break; }
 
@@ -105,22 +68,22 @@ namespace invoiceCmd
                                                     {
                                                         case 1:
                                                             {
-                                                                Console.WriteLine("Adding New Customer");
-                                                                Console.WriteLine("Name: ");
+                                                                Console.WriteLine("\n  Adding New Customer");
+                                                                Console.Write("\n  Name: ");
 
                                                                 string inputName = Console.ReadLine();
 
-                                                                Console.WriteLine("Surname: ");
+                                                                Console.Write("\n  Surname: ");
                                                                 string inputSurname = Console.ReadLine();
 
-                                                                Console.WriteLine("Email: ");
+                                                                Console.Write("\n  Email: ");
                                                                 string inputEmail = Console.ReadLine();
 
-                                                                Console.WriteLine("Mobile: ");
+                                                                Console.Write("\n  Mobile: ");
                                                                 string inputMobile = Console.ReadLine();
 
-                                                                customerList.Add(new customer() { Name = inputName, Surname = inputSurname, Email = inputEmail, Mobile = inputMobile });
-                                                                foreach(customer cost in customerList)
+                                                                customerList.Add(new Customer() { Name = inputName, Surname = inputSurname, Email = inputEmail, Mobile = inputMobile });
+                                                                foreach(Customer cost in customerList)
                                                                 {
                                                                     cost.SetID();
                                                                     cost.Add();
@@ -135,23 +98,23 @@ namespace invoiceCmd
                                                         case 2:
                                                             {                                                          
 
-                                                                customer.List();
+                                                                Customer.List();
 
                                                                 break;
                                                             }
 
                                                         case 3:
                                                             {
-                                                                Console.WriteLine("\n    Remove customer, \n Please insert ID, this Customer will be delate permanently from data base.");
+                                                                Console.WriteLine("\n    Remove customer, \n Please insert ID, this Customer will be delate permanently from database.");
                                                                 try
                                                                 {
                                                                     int deleteChoice = Convert.ToInt16(Console.ReadLine());
 
-                                                                  customer.RemoveCustomer(deleteChoice);
+                                                                  Customer.RemoveCustomer(deleteChoice);
                                                                 }
                                                                 catch
                                                                 {
-                                                                    Console.WriteLine("Wrong! CUstomer isnt deleted, try again.");
+                                                                    Console.WriteLine("Error while removing customer , try again.");
                                                                 }
 
                                                                 userChoice = 0;

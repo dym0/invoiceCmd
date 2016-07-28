@@ -3,55 +3,25 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections.Generic;
 
+
 namespace invoiceCmd
 {
-    public class customer
+    public class Customer : ICustomer
     {
-        
-        private int ID;
+
+        public int ID { get; set; }
+
         public string Name { get; set; }
-        public string Surname { get; set; }     
+
+        public string Surname { get; set; }    
+ 
         public string Email { get; set; }
+
         public string Mobile { get; set; }
-        private string Data;
 
-          
-            public void test()
-            {
-                Console.WriteLine("test2");
-            }
-            //public void AddCustomer(string _Name, string _Surname, string _Email, string _Mobile)
-            //{
-            //    this.Name = _Name; 
-            //    this.Surname = _Surname; 
-            //    this.Email = _Email; 
-            //    this.Mobile = _Mobile; 
-            //}
+        public DateTime Date { get; set; }
 
-            //public void AddCustomer(string _Name, string _Surname, string _Email)
-            //{
-            //    this.Name = _Name; 
-            //    this.Surname = _Surname; 
-            //    this.Email = _Email; 
-            //}
-        
-
-            //public int id
-            //{
-            //    set
-            //    {
-            //        DateTime data = DateTime.Now;
-            //        Data = data.ToShortDateString();
-            //        ID = value;
-            //    }
-            //    get
-            //    {
-            //        return ID;
-
-            //    }
-
-            //}
-            
+ 
 
             public void SetID()
             {
@@ -62,7 +32,7 @@ namespace invoiceCmd
 
                     using (SqlConnection con = new SqlConnection(cs))
                     {
-                        SqlCommand cmd = new SqlCommand("SELECT MAX(ID) FROM clientInfo;", con);
+                        SqlCommand cmd = new SqlCommand("SELECT MAX(Client_ID) FROM clientInfo;", con);
 
                         con.Open();
                         try
@@ -72,13 +42,8 @@ namespace invoiceCmd
                         catch
                         {
                             lastID = 0;
-                        }
-                      
-
-                    
-                        // TODO
-                        // get last ID from DB. 
-                        // set ID + 1 then last id from db
+                        }  
+                 
 
                         lastID++;
                     }
@@ -86,8 +51,9 @@ namespace invoiceCmd
                     
                     this.ID = lastID;
 
-                    DateTime data = DateTime.Now;
-                    Data = data.ToShortDateString();
+                     Date = DateTime.Today;
+                     Date = Date.Date;
+                
             }
 
             public string Info()
@@ -101,7 +67,7 @@ namespace invoiceCmd
                  "\n Surname: " + this.Surname +
                  "\n Email: " + this.Email +
                  "\n Mobile: " + this.Mobile +
-                 "\n Join Date: " + this.Data;
+                 "\n Join Date: " + this.Date;
 
             return info;
              
@@ -113,7 +79,7 @@ namespace invoiceCmd
             {
                 string dbConnection = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
 
-                string cmd = String.Format("INSERT INTO clientInfo VALUES({0}, '{1}','{2}','{3}','{4}','{5}')", this.ID, this.Name, this.Surname, this.Email, this.Mobile, this.Data);
+                string cmd = String.Format("INSERT INTO clientInfo VALUES({0}, '{1}','{2}','{3}','{4}','{5}')", this.ID, this.Name, this.Surname, this.Date, this.Email, this.Mobile );
                // TODO
 
                 //SQL Incjection protection
@@ -140,8 +106,9 @@ namespace invoiceCmd
                     using (SqlConnection con = new SqlConnection(cs))
                     {
                         con.Open();
-                        string myCmd = String.Format("DELETE FROM clientInfo WHERE ID = {0}", _id);
+                        string myCmd = String.Format("DELETE FROM clientInfo WHERE client_ID = {0}", _id);
                         //TODO
+                        // Removing confirmation
                         // SQL INCJECTION PROTECTION
                         SqlCommand cmd = new SqlCommand(myCmd, con);
                         int cos = (int)cmd.ExecuteNonQuery();
@@ -153,15 +120,7 @@ namespace invoiceCmd
                     Console.WriteLine("removing failed!!");
 
                 }
-                //string cs = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
-
-                //using (SqlConnection con = new SqlConnection(cs))
-                //{
-                //    string myCmd = String.Format("DELETE FROM clientInfo WHERE ID = {0};", _id);
-                //    SqlCommand cmd = new SqlCommand(myCmd, con);
-
-                //    con.Open();
-                //}
+          
             }
 
             public static void List()
