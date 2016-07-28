@@ -23,9 +23,9 @@ namespace invoiceCmd
         
 
 
-        void SetID();
+        //void SetID();
 
-        string Info();
+        //string Info();
 
       
        

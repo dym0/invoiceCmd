@@ -2,6 +2,9 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections.Generic;
+using invoiceCmd.Model;
+
+
 
 
 namespace invoiceCmd
@@ -75,24 +78,53 @@ namespace invoiceCmd
 
          
             
-            public void Add()
+            public static void Add()  // add static for entity framework test
             {
-                string dbConnection = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
+               // string dbConnection = ConfigurationManager.ConnectionStrings["DBCL"].ConnectionString;
 
-                string cmd = String.Format("INSERT INTO clientInfo VALUES({0}, '{1}','{2}','{3}','{4}','{5}')", this.ID, this.Name, this.Surname, this.Date, this.Email, this.Mobile );
-               // TODO
+               // string cmd = String.Format("INSERT INTO clientInfo VALUES({0}, '{1}','{2}','{3}','{4}','{5}')", this.ID, this.Name, this.Surname, this.Date, this.Email, this.Mobile );
+               //// TODO
 
-                //SQL Incjection protection
-                using (SqlConnection sqlCon = new SqlConnection(dbConnection))
-                {
-                    sqlCon.Open();
+               // //SQL Incjection protection
+               // using (SqlConnection sqlCon = new SqlConnection(dbConnection))
+               // {
+               //     sqlCon.Open();
                    
-                   SqlCommand ja =  new SqlCommand(cmd, sqlCon);
-                   int TotalRowsAffected = (int)ja.ExecuteNonQuery();
+               //    SqlCommand ja =  new SqlCommand(cmd, sqlCon);
+               //    int TotalRowsAffected = (int)ja.ExecuteNonQuery();
                  
 
-                };
+               // };
 
+                using (var db = new CustomerDBContext())
+                {
+
+                    var customer = new DbCustomer
+                    {
+                        ID = 1,
+                        Date = DateTime.Now,
+                        Email =
+
+                            "damiankuzmicki1989@gmail.com",
+                        Mobile = "0738961968",
+                        Name = "Damian",
+                        Surname = "Kuzmicki"
+                    };
+
+
+
+
+                    try
+                    {
+                        db.Customers.Add(customer);
+                        db.SaveChanges();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Sorry, Cant add Customer, try again later!");
+                    }
+
+                }
 
             }
                // ## STATIC METHODS ## //

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using invoiceCmd.Model;
 
 namespace invoiceCmd
 {   
@@ -12,9 +13,16 @@ namespace invoiceCmd
      class Program
     {
 
-       
+       /* DOne */
+       /* Add entity framework NuGet package*/
+       /* Test entity */
+
+       /* TODO TODAY */
+        
+        /* ADD Entity framwork and adapt invoicecmd to it */
 
 
+         
 
         static void Main(string[] args)
         {
@@ -68,28 +76,31 @@ namespace invoiceCmd
                                                     {
                                                         case 1:
                                                             {
-                                                                Console.WriteLine("\n  Adding New Customer");
-                                                                Console.Write("\n  Name: ");
+                                                            //    Console.WriteLine("\n  Adding New Customer");
+                                                            //    Console.Write("\n  Name: ");
 
-                                                                string inputName = Console.ReadLine();
+                                                            //    string inputName = Console.ReadLine();
 
-                                                                Console.Write("\n  Surname: ");
-                                                                string inputSurname = Console.ReadLine();
+                                                            //    Console.Write("\n  Surname: ");
+                                                            //    string inputSurname = Console.ReadLine();
 
-                                                                Console.Write("\n  Email: ");
-                                                                string inputEmail = Console.ReadLine();
+                                                            //    Console.Write("\n  Email: ");
+                                                            //    string inputEmail = Console.ReadLine();
 
-                                                                Console.Write("\n  Mobile: ");
-                                                                string inputMobile = Console.ReadLine();
+                                                            //    Console.Write("\n  Mobile: ");
+                                                            //    string inputMobile = Console.ReadLine();
 
-                                                                customerList.Add(new Customer() { Name = inputName, Surname = inputSurname, Email = inputEmail, Mobile = inputMobile });
-                                                                foreach(Customer cost in customerList)
-                                                                {
-                                                                    cost.SetID();
-                                                                    cost.Add();
-                                                                }
+                                                            //    customerList.Add(new Customer() { Name = inputName, Surname = inputSurname, Email = inputEmail, Mobile = inputMobile });
+                                                            //    foreach(Customer cost in customerList)
+                                                            //    {
+                                                                    //cost.SetID();
+                                                                    //cost.Add();
+                                                                //}
                                                              
-                                                                Console.Clear();
+                                                                //Console.Clear();
+                                                                //break;
+
+                                                                Customer.Add();
                                                                 break;
                                                                 
 

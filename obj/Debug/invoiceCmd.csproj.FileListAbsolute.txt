@@ -4,10 +4,13 @@ C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\invoice
 C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\invoiceCmd.pdb
 C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\obj\Debug\invoiceCmd.exe
 C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\obj\Debug\invoiceCmd.pdb
-C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\obj\Debug\invoiceCmd.csprojResolveAssemblyReference.cache
 C:\Users\Damian\Documents\Projects\invoiceCmd\bin\Debug\invoiceCmd.exe.config
 C:\Users\Damian\Documents\Projects\invoiceCmd\obj\Debug\invoiceCmd.exe
 C:\Users\Damian\Documents\Projects\invoiceCmd\obj\Debug\invoiceCmd.pdb
 C:\Users\Damian\Documents\Projects\invoiceCmd\bin\Debug\invoiceCmd.exe
 C:\Users\Damian\Documents\Projects\invoiceCmd\bin\Debug\invoiceCmd.pdb
 C:\Users\Damian\Documents\Projects\invoiceCmd\obj\Debug\invoiceCmd.csprojResolveAssemblyReference.cache
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\EntityFramework.dll
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\EntityFramework.xml
+C:\Users\dym0\Documents\Visual Studio 2013\Projects\invoiceCmd\bin\Debug\EntityFramework.SqlServer.xml
